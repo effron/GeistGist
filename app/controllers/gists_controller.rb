@@ -9,9 +9,13 @@ class GistsController < ApplicationController
 
   def create
     current_user.gists.build(params[:gist])
-    current_user.save!
+    unless current_user.save
+      p "A" * 44
+      p current_user
+    end
 
-    respond_with current_user.gists.last
+    @gist = current_user.gists.last
+    render json: @gist.as_json(include: { favorites: {}, gist_files: {} })
   end
 
 end

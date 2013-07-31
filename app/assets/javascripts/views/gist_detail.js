@@ -10,9 +10,9 @@ Geist.Views.GistDetail = Backbone.View.extend({
     var that = this;
 
     that.$el.html(that.template({
+      counter: that.counter,
       gist: that.model
     }))
-
     return this
   },
 
@@ -30,7 +30,6 @@ Geist.Views.GistDetail = Backbone.View.extend({
         console.log("Failed to save favorite")
       }
     })
-
     $(event.target).parent().toggleClass("favorited unfavorited")
   },
 
@@ -48,7 +47,6 @@ Geist.Views.GistDetail = Backbone.View.extend({
         console.log("Failed to Delete favorite")
       }
     })
-
     $(event.target).parent().toggleClass("favorited unfavorited")
   }
 
