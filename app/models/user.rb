@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :gists
+  has_many :favorites
+  has_many :favorite_gists, through: :favorites, source: :gist
 
   validates :username, :password_digest, :presence => true
   validates :password, :length => { :minimum => 3 }

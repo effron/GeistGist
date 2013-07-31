@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def redirect_logged_in_user
-    if logged_in? 
+    if logged_in?
       flash[:errors] ||= []
       flash[:errors] << "You are already logged in"
-      redirect_to current_user 
+      redirect_to user_url
     end
   end
 end

@@ -1,1 +1,15 @@
 <h1><%= @user.username %>'s Page </h1>
+
+<div class="content"></div>
+
+<script type="application/json" id="bootstrapped_tasks_json">
+  <%= @gists.as_json(include: { favorites: {}}).to_json.html_safe %>
+</script>
+
+<script>
+  $(function () {
+    var gists = JSON.parse($("#bootstrapped_tasks_json").html());
+
+    window.Geist.initialize($(".content"), gists)
+  });
+</script>

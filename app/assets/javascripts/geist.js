@@ -3,11 +3,11 @@ window.Geist = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    alert('Hello from Backbone!');
+  initialize: function($rootEl, gists) {
+    console.log("Initialize GEIST")
+    var gists = new Geist.Collections.Gists(gists);
+
+    new Geist.Routers.GistRouter($rootEl, gists);
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Geist.initialize();
-});

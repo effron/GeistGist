@@ -1,0 +1,7 @@
+<ul>
+  <% gists.each(function(gist) { %>
+    <li class="gist-item" data-id="<%= gist.get('id') %>">
+      <%= gist.escape('title') %>
+    </li>
+  <% }); %>
+</ul>

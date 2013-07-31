@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_filter :redirect_logged_in_user, :only => [:new]
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @gists = current_user.gists
   end
 
   def new

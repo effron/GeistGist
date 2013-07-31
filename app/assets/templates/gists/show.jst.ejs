@@ -1,0 +1,6 @@
+<%= gist.escape('title') %>, last changed on: <%= gist.get('updated_at') %>
+<div class="favorite-buttons <%= gist.get('favorites') ? "favorited" : "unfavorited" %>">
+  <button class="favorite">Favorite</button>
+  <button class="unfavorite">Unfavorite</button>
+</div>
+<button class="collapse" data-id="<%= gist.get("id") %>">Collapse</button>
