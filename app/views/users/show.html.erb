@@ -3,7 +3,7 @@
 <div class="content"></div>
 
 <script type="application/json" id="bootstrapped_tasks_json">
-  <%= @gists.as_json(include: { favorites: {}}).to_json.html_safe %>
+  <%= @gists.as_json(include: { favorites: {}, gist_files: {} }).to_json.html_safe %>
 </script>
 
 <script>

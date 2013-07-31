@@ -4,9 +4,12 @@ Geist::Application.routes.draw do
 
   resources :gists, only: [:index, :create, :destroy] do
     resource :favorite, only: [:create, :destroy]
+    resources :gist_files, only: [:create, :index]
   end
+
+  resources :gist_files, only: [:destroy, :show]
 
   resources :favorites, only: [:index]
 
-  root :to => "users#new"
+  root :to => "users#show"
 end

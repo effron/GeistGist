@@ -1,0 +1,1 @@
+Geist.Models.GistFile = Backbone.Model.extend({});

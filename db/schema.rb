@@ -11,11 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731145140) do
+ActiveRecord::Schema.define(:version => 20130731184217) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
     t.integer  "gist_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "gist_files", :force => true do |t|
+    t.integer  "gist_id"
+    t.string   "name"
+    t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
