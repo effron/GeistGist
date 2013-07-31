@@ -1,4 +1,12 @@
 Geist.Views.GistsIndex = Backbone.View.extend({
+  initialize: function(){
+    var that = this;
+    var renderCallback = that.render.bind(that);
+    this.listenTo(that.collection, "add", renderCallback);
+    this.listenTo(that.collection, "change:title", renderCallback);
+    this.listenTo(that.collection, "remove", renderCallback);
+  },
+
   template: JST['gists/index'],
   events: {
     "click li.gist-item" : "openDetail",
@@ -23,6 +31,7 @@ Geist.Views.GistsIndex = Backbone.View.extend({
   },
 
   collapseDetail: function(event){
+    console.log("COLLAPSE WAS CALLED")
     var that = this;
     var id = $(event.target).data("id")
     var model = this.collection.get(id)

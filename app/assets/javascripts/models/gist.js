@@ -4,7 +4,7 @@ Geist.Models.Gist = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    if (response["favorites"].length > 0) {
+    if (response["favorites"] && response["favorites"].length > 0) {
       response.favorites = true;
     } else {
       response.favorites = false;

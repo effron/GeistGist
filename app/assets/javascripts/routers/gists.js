@@ -5,7 +5,8 @@ Geist.Routers.GistRouter = Backbone.Router.extend({
   },
 
   routes: {
-    "" : "index"
+    "" : "index",
+    "new" : "new"
   },
 
   index: function () {
@@ -16,5 +17,16 @@ Geist.Routers.GistRouter = Backbone.Router.extend({
     })
 
     that.$rootEl.html(gistsIndexView.render().$el)
+  },
+
+  new: function(){
+    var that = this;
+    console.log("RUNNING NEW FROM ROUTER")
+    var gistFormView = new Geist.Views.GistForm({
+      collection: that.gists,
+      model: new Geist.Models.Gist({})
+    })
+
+    that.$rootEl.html(gistFormView.render().$el)
   }
 })
