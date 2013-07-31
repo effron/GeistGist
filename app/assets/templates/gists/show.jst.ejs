@@ -1,8 +1,8 @@
 <%= gist.escape('title') %>, last changed on: <%= gist.get('updated_at') %>
 <ul>
 <% gist.get('gist_files').each(function(gist_file) { %>
-  <li><%= gist_file.escape('name') %></li>
-  <li><%= gist_file.escape('body') %></li>
+  <li>Title:<%= gist_file.escape('name') %></li>
+  <li>Body:<%= gist_file.escape('body') %></li>
 <% }); %>
 </ul>
 <div class="favorite-buttons <%= gist.get('favorites') ? "favorited" : "unfavorited" %>">

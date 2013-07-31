@@ -19,8 +19,13 @@ Geist.Views.GistForm = Backbone.View.extend({
   submitForm: function (event) {
     var that = this;
     var title = that.$("input[name=gist\\[title\\]]").val();
-
-    var attributes = {'title': title, gist_files_attributes: []}
+    var attributes;
+    if (that.counter === 0){
+      attributes = {'title': title};
+    }
+    else {
+      attributes = {'title': title, gist_files_attributes: []};
+    }
 
     _.times(that.counter, function(n) {
       var name = that.$("input[name=gist\\[" + n + "\\]\\[gist_files_attributes\\]\\[name\\]]").val();
